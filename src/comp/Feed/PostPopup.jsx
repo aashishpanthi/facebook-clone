@@ -28,7 +28,8 @@ function PostPopup({changeState}) {
 		e.preventDefault()
 
 		if(hasSelectedImage){
-			const uploadTask = storage.ref(`images/${image.name}`).put(image)
+			const imageName = `${new Date()}.${image.name}`
+			const uploadTask = storage.ref(`images/${imageName}`).put(image)
 			uploadTask.on(
 					'state_changed',
 					snapshot => {
@@ -42,7 +43,7 @@ function PostPopup({changeState}) {
 					},
 					()=>{
 						storage.ref('images')
-							.child(image.name)
+							.child(imageName)
 							.getDownloadURL()
 							.then(url =>{
 								setUrl(url)
@@ -73,6 +74,7 @@ function PostPopup({changeState}) {
 		setStatus('')
 		setUrl('')
 		setHasSelectedImage(false)
+		changeState()
 	}
 
 	return (

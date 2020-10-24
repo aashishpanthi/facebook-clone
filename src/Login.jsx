@@ -16,7 +16,6 @@ function Login() {
 				type: actionType.SET_USER,
 				user: result.user,
 			})
-			console.log(result)
 		})
 		.catch(error =>{
 			console.log(error.message)
