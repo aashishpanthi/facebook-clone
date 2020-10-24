@@ -46,10 +46,8 @@ function PostPopup({changeState}) {
 							.getDownloadURL()
 							.then(url =>{
 								setUrl(url)
-								setTimeout(() =>{
-									pushData(url)
-									clearInputs()
-								},2000)
+								pushData(url)
+								clearInputs()
 							})
 					}
 				)
