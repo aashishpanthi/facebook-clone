@@ -4,6 +4,7 @@ import VideocamIcon from '@material-ui/icons/Videocam'
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import { useStateValue } from '../StateProvider'
+import PostPopup from './Feed/PostPopup'
 import db from '../firebase'
 import firebase from 'firebase'
 import '../ess/css/PostMaker.css'
@@ -12,7 +13,8 @@ function PostMaker() {
 
 	const [{user}, dispatch] = useStateValue()
 	const [status, setStatus] = useState('')
-	const [url, setUrl] = useState('')
+	const [isOpen, setIsOpen] = useState(false)
+	const url = ''
 
 	const handleStatusInput = e => {
 		setStatus(e.target.value)
@@ -30,7 +32,6 @@ function PostMaker() {
 		})
 
 		setStatus('')
-		setUrl('')
 	}
 
 	return (
@@ -39,7 +40,6 @@ function PostMaker() {
 				<Avatar src={user.photoURL} />
 				<form>
 					<input onChange={handleStatusInput} placeholder={`What's on your mind ${user.displayName}`} value={status} className='postmaker__statusInput' />
-					<input onChange={e => setUrl(e.target.value)} placeholder='image URL (Optional)' value={url} />
 					<button onClick={handleSubmit} type='submit'>
 						Submit
 					</button>				
@@ -52,9 +52,10 @@ function PostMaker() {
 					<h3>Live Video</h3>
 				</div>
 
-				<div className='postmaker__option'>
+				<div className='postmaker__option' onClick={()=> setIsOpen(true)}>
 					<PhotoLibraryIcon style={{color:'green'}} />
 					<h3>Photo/Video</h3>
+					{isOpen && <PostPopup setIsOpen={setIsOpen} />}
 				</div>
 
 				<div className='postmaker__option'>

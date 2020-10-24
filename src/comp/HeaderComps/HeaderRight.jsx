@@ -1,11 +1,8 @@
 import React from 'react'
 import '../../ess/css/Header.css'
-import { Avatar, IconButton } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
-import ForumIcon from '@material-ui/icons/Forum'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { Avatar } from '@material-ui/core'
 import { useStateValue } from '../../StateProvider'
+import HeaderRightItem from './HeaderRightItem'
 
 function HeaderRight() {
 	
@@ -14,25 +11,11 @@ function HeaderRight() {
 	return (
 		<div className='header__right'>
 			<div className='header__info'>
-				<Avatar src={user.photoURL} />
-				<h4>{user.displayName}</h4>
+				<Avatar className='header__infoAvatar' src={user.photoURL} />
+				<h4>{user.displayName.split(' ')[0]}</h4>
 			</div>
 
-			<IconButton>
-				<AddIcon />
-			</IconButton>
-
-			<IconButton>
-				<ForumIcon />
-			</IconButton>
-
-			<IconButton>
-				<NotificationsActiveIcon />
-			</IconButton>
-
-			<IconButton>
-				<ExpandMoreIcon />
-			</IconButton>
+			<HeaderRightItem />
 		</div>
 	)
 }

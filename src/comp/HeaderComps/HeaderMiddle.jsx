@@ -9,7 +9,7 @@ import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
 function HeaderMiddle() {
 	return (
 		<div className="header__middle">
-			<div className='header__options'>
+			<div className='header__options header__options--active'>
 				<HomeIcon fontSize="large" />
 			</div>
 

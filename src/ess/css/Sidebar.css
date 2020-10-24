@@ -24,3 +24,9 @@
 	font-size: xx-large;
 	color:#2e81f4;
 }
+
+@media (min-width:1000px) {
+	.sidebar{
+		width:300px;
+	}
+}

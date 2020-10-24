@@ -55,7 +55,7 @@
 }
 
 .header__options--active{
-	border: 4px solid #2e81f4;
+	border-bottom: 4px solid #2e81f4;
 }
 
 .header__options > .MuiSvgIcon-root{
@@ -73,11 +73,25 @@
 .header__info{
 	display: flex;
 	align-items: center;
+	background:#fff;
+	margin-right: 5px;
+	padding:0px 10px;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: background .2s ease-in;
+}
 
+.header__info:hover{
+	background:#e5e5e5;
+}
+
+.header__infoAvatar{
+	max-width: 30px !important;
+	max-height: 30px !important;
 }
 
 .header__info > h4{
-	margin-left: 10px;
+	margin-left: 7px;
 }
 
 .header__right{
