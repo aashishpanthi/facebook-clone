@@ -41,21 +41,22 @@
 	justify-content: space-evenly;
 }
 
-.postmaker__option{
-	padding: 20px;
+.postmaker__option, .postmaker__option__photoVideo{
+	padding: 5px 15px;
 	display: flex;
 	align-items: center;
 	color: gray;
 	margin: 5px;
 	cursor:pointer;
+	border-radius:999px; 
+	transition: background 0.3s ease-in;
 }
 
 .postmaker__option:hover{
 	background-color: #eff2f5;
-	border-radius:20px; 
 }
 
-.postmaker__option > h3{
+.postmaker__option > h3, .postmaker__option__photoVideo >h3{
 	margin-left: 10px;
 	font-size:medium;
 }

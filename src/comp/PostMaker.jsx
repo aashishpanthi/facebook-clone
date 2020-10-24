@@ -34,6 +34,10 @@ function PostMaker() {
 		setStatus('')
 	}
 
+	const changeState = () =>{
+		setIsOpen(!isOpen)
+	}
+
 	return (
 		<div className='postmaker'>
 			<div className='postmaker__top'>
@@ -52,10 +56,12 @@ function PostMaker() {
 					<h3>Live Video</h3>
 				</div>
 
-				<div className='postmaker__option' onClick={()=> setIsOpen(true)}>
-					<PhotoLibraryIcon style={{color:'green'}} />
-					<h3>Photo/Video</h3>
-					{isOpen && <PostPopup setIsOpen={setIsOpen} />}
+				<div className='postmaker__option'>
+					<span className='postmaker__option__photoVideo' onClick={changeState}>
+						<PhotoLibraryIcon style={{color:'green'}} />
+						<h3>Photo/Video</h3>
+					</span>
+					{isOpen && <PostPopup changeState={changeState} />}
 				</div>
 
 				<div className='postmaker__option'>

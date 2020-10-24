@@ -15,7 +15,7 @@
 
 .postPopup > .postPopup__headerItems{
 	display: flex;
-	border-bottom: 1px solid #000;
+	box-shadow: 0px 1px 1px 0px rgba(200,200,200,0.5);
 	padding:10px;
 	align-items: center;
 }
@@ -69,19 +69,11 @@
 .postPopup input{
 	width:100%;
 	height:50px;
-	font-size: 23px;
+	font-size: 20px;
 	border:none;
 	outline:none;
 }
 
-
-/*.postPopup input[type="file"]{
-	width:100%;
-	height:40px;
-	font-size: 19px;
-	border-radius: 999px;
-}
-*/
 .postPopup button{
 	width: 100%;
 	background-color: #2e81f4;
@@ -96,32 +88,36 @@
 }
 
 
+.postPopup__imageUrl{
+	width:100%;
+	height:30px !important;
+	font-size: 19px;
+	box-shadow: 0px 1px 1px rgba(200,200,200,0.7);
+	margin-bottom: 10px;
+}
 
-/*File upload styling */
 
-.file-upload-btn {
-  width: 100%;
-  margin: 0;
-  color: #fff;
-  background: #1FB264;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  border-bottom: 4px solid #15824B;
-  transition: all .2s ease;
+.postPopup__fileButton::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.postPopup__fileButton::before {
+  content: 'Select some files';
+  display: inline-block;
+  background: linear-gradient(to top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
   outline: none;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.file-upload-btn:hover {
-  background: #1AA059;
-  color: #ffffff;
-  transition: all .2s ease;
+  white-space: nowrap;
+  -webkit-user-select: none;
   cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
 }
-
-.file-upload-btn:active {
-  border: 0;
-  transition: all .2s ease;
+.postPopup__fileButton:hover::before {
+  border-color: black;
+}
+.postPopup__fileButton:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }

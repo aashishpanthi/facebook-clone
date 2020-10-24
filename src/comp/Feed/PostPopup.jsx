@@ -8,13 +8,14 @@ import firebase from 'firebase'
 import {Avatar} from '@material-ui/core'
 import '../../ess/css/PostPopup.css'
 
-function PostPopup({setIsOpen}) {
+function PostPopup({changeState}) {
 
 	const [{user}, dispatch] = useStateValue()
 	const [status, setStatus] = useState('')
 	const [image, setImage] = useState(null)
-	const [url, setUrl] = useState('')
+	const [Url, setUrl] = useState('')
 	const [hasSelectedImage, setHasSelectedImage] = useState(false)
+	const [Progress, setProgress] = useState(0)
 
 	const handleFile = e =>{
 		if(e.target.files[0]){
@@ -30,7 +31,12 @@ function PostPopup({setIsOpen}) {
 			const uploadTask = storage.ref(`images/${image.name}`).put(image)
 			uploadTask.on(
 					'state_changed',
-					snapshot => {},
+					snapshot => {
+						const progress = Math.round(
+								(snapshot.bytesTransferred / snapshot.totalBytes) *100
+							)
+						setProgress(progress)
+					},
 					error => {
 						console.log(error)
 					},
@@ -40,19 +46,32 @@ function PostPopup({setIsOpen}) {
 							.getDownloadURL()
 							.then(url =>{
 								setUrl(url)
+								setTimeout(() =>{
+									pushData(url)
+									clearInputs()
+								},2000)
 							})
 					}
 				)
 		}
 
+		else{
+			pushData()
+			clearInputs()
+		}
+	}
+
+	const pushData = (URL = Url) =>{
 		db.collection('posts').add({
 			message: status,
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-			image: url,
+			image: URL,
 			profilePic: user.photoURL,
 			username: user.displayName,
 		})
+	}
 
+	const clearInputs = () =>{
 		setStatus('')
 		setUrl('')
 		setHasSelectedImage(false)
@@ -62,7 +81,7 @@ function PostPopup({setIsOpen}) {
 		<div className='postPopup'>
 			<div className='postPopup__headerItems'>
 				<h2>Create Post</h2>
-				<ClearIcon className='postPopup__clearIcon' onClick={() => setIsOpen(false)} />
+				<ClearIcon className='postPopup__clearIcon' onClick={changeState} />
 			</div>
 
 			<div className='postPopup__userInfo'>
@@ -83,9 +102,10 @@ function PostPopup({setIsOpen}) {
 					placeholder={`What's on your mind, ${user.displayName.split(' ')[0]}?`}
 				/>
 
-				<input type="file" className='postPopup__fileButton file-upload-btn' onChange={handleFile} />
-
-				<input onChange={e => setUrl(e.target.value)} className='postPopup__imageUrl' placeholder='image URL' value={url} />
+				<input type="file" className='postPopup__fileButton' accept="image/*" onChange={handleFile} />
+				{Progress ? (<progress value={Progress} max='100'></progress>) : null}
+				<h3 style={{textAlign:'center'}}>OR</h3>
+				<input onChange={e => setUrl(e.target.value)} className='postPopup__imageUrl' placeholder='image URL' value={Url} />
 				<Button type='submit' onClick={Post}>
 					Post
 				</Button>
