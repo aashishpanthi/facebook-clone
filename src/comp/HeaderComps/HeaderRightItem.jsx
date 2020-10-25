@@ -11,10 +11,12 @@ function HeaderRightItem() {
   return (
     <>
       <NavItem icon={<AddIcon />} />
-      <NavItem icon={<MessengerIcon />} />
+      <NavItem icon={<MessengerIcon />} >
+        <Dropdown item='message' />
+      </NavItem>
       <NavItem icon={<BellIcon />} />
       <NavItem icon={<CaretIcon />} >
-        <Dropdown />
+        <Dropdown item='cork' />
       </NavItem>
     </>
   );

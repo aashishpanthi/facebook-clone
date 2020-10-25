@@ -15,6 +15,7 @@ function Login() {
 			dispatch({
 				type: actionType.SET_USER,
 				user: result.user,
+				email:result.additionalUserInfo.profile.email,
 			})
 		})
 		.catch(error =>{

@@ -145,3 +145,141 @@ a {
   height: 60px !important;
   margin-right: 10px;
 }
+
+
+/*Message component and MessageRow component */
+
+.chatMessage__dropdown{
+  padding:15px 0px 5px 10px;
+}
+
+.messageBox__header{
+  font-size:25px;
+  font-weight: bold;
+}
+
+.messageBox__messages{
+  width:300px;
+  min-height:400px;
+  height: 400px;
+  max-height: 400px;
+  overflow-y:scroll;
+  position: relative;
+}
+
+.messageRow{
+  display: flex;
+  margin:5px;
+  width:70%;
+  padding:3px 0px;
+  background:#eeaa33;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.messageRow.yesThumb{
+  background:transparent;
+  padding:0;
+}
+
+.messageRow.yesThumb.sent{
+  background:transparent;
+  padding:0;
+  transform: rotateY(180deg);
+}
+
+.messageRow.sent{
+  background:#7744cc55;
+  margin-left: auto;
+  padding:7px 10px;
+}
+
+.messageRow__detailedBox{
+  flex:1;
+}
+
+.messageRow__detailedBox > h5{
+  font-size: 10px;
+  text-align:center;
+  color:#333333bc;
+}
+
+.messageRow.sent .messageRow__detailedBox > h5{
+  display: none;
+}
+
+
+.messageRow__detailedBox > h3{
+  font-size:15px;
+  color:#111;
+  line-height:15px;
+}
+
+.messageRow.sent > h3{
+  margin:0px 5px 0px 20px;
+  color:#000;
+}
+
+
+.messageRow__detailedBox > span{
+  position: absolute;
+  background:#000;
+  color:#fff;
+  display: none;
+  font-size: 10px;
+  z-index:1;
+}
+
+.messageRow__detailedBox > span:after{
+  position: absolute;
+  content:'';
+  background: #000;
+  height:10px;
+  width:10px;
+  transform:rotate(45deg);
+  top:-4px;
+  right:0px;
+  z-index:-1;
+}
+
+.messageRow__detailedBox:hover > span{
+  display: block;
+}
+
+.messageRow__renderedThumbIcon.MuiSvgIcon-root{
+  color:blue;
+  width:50px;
+  height:50px;
+  margin-left: 10px;
+}
+
+.messageBox__inputMessage form{
+  display: flex;
+  align-items: center;
+  width:95%;
+  padding:0px 20px 0px 0px;
+}
+
+.messageBox__inputMessage input{
+  height:25px;
+  flex:1;
+  outline:none;
+  border:none;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background-color: #eff2f5;
+}
+
+.messageBox__inputMessage .MuiSvgIcon-root{
+  color:#2e81f4;
+  cursor:pointer;
+  border-radius: 50%;
+  padding:5px;
+  height:30px;
+  width:30px;
+  margin: 0px 5px;
+}
+
+.messageBox__inputMessage .MuiSvgIcon-root:hover{
+  background:#e5e5e5;
+}
