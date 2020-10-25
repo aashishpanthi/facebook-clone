@@ -188,10 +188,15 @@ a {
   transform: rotateY(180deg);
 }
 
+.messageRow.received{ 
+  animation: othersMessageCommingIn .2s ease-in;
+}
+
 .messageRow.sent{
   background:#7744cc55;
   margin-left: auto;
   padding:7px 10px;
+  animation: yourMessageCommingIn .2s ease-in;
 }
 
 .messageRow__detailedBox{
@@ -282,4 +287,25 @@ a {
 
 .messageBox__inputMessage .MuiSvgIcon-root:hover{
   background:#e5e5e5;
+}
+
+
+/*Animations */
+@keyframes yourMessageCommingIn {
+  from{
+    transform:translateX(10px);
+  }
+  to{
+    transform:translateX(0px);
+  }
+}
+
+
+@keyframes othersMessageCommingIn {
+  from{
+    transform:translateX(-10px);
+  }
+  to{
+    transform:translateX(0px);
+  }
 }
