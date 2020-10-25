@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '@material-ui/core';
+import swal from '@sweetalert/with-react'
 import { auth, provider} from './firebase'
 import {useStateValue} from './StateProvider'
 import {actionType} from './reducer'
@@ -19,7 +20,14 @@ function Login() {
 			})
 		})
 		.catch(error =>{
-			console.log(error.message)
+			swal(
+				  <div>
+				    <h1>An error occured!</h1>
+				    <p>
+				      {error.message}
+				    </p>
+				  </div>
+				)
 		})
 	}
 

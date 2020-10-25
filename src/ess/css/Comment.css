@@ -13,8 +13,9 @@
 
 .Comment__main{
 	background: #e5e5e5;
-	padding:5px 15px;
+	padding:5px 20px;
 	border-radius: 25px;
+	margin-left: 10px;
 }
 
 .Comment__main > h3{

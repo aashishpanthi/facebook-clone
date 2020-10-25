@@ -27,9 +27,14 @@ function Post({ profilePic, image, timestamp, username, message, docId, likes, L
 	}, [])
 
 	const like = e =>{
+		setEMAILSLINKED(likedORNOt ? EMAILSLINKED.filter((mail)=> mail !== email): [...EMAILSLINKED,email])
+		manageLike(likedORNOt ? EMAILSLINKED.filter((mail)=> mail !== email): [...EMAILSLINKED,email])
+	}
+
+	const manageLike = (EMAILS = EMAILSLINKED) =>{
 		db.collection('posts').doc(docId).update({
-			likes : likedORNOt ? emailsLiked.length : emailsLiked.length + 1,
-			emailsLiked : likedORNOt ? [...EMAILSLINKED] :EMAILSLINKED.filter((mail)=> mail !== email) 
+			likes : EMAILS.length,
+			emailsLiked :  EMAILS,
 		}).then(()=> setLikedORNOt(!likedORNOt))
 	}
 
