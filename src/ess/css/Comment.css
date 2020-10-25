@@ -1,0 +1,59 @@
+.post__comments{
+	padding:5px 10px;
+}
+
+.Comment{
+	margin: 8px 0px;
+}
+
+.Comment__Info{
+	display: flex;
+	padding:0px 5px;
+}
+
+.Comment__main{
+	background: #e5e5e5;
+	padding:5px 15px;
+	border-radius: 25px;
+}
+
+.Comment__main > h3{
+	font-size:13px;
+	cursor: pointer;
+}
+
+.Comment__main > h3:hover{
+	text-decoration: underline;
+}
+
+.Comment__moreInfo{
+	display: flex;
+	padding-left:10%;
+}
+
+.Comment__moreInfo > span{
+	padding: 0px 2px;
+	margin:0px 2px;
+	font-size:11px;
+	cursor:pointer;
+	color:#666;
+	font-weight: bold;
+}
+
+.Comment__moreInfo > span:hover{
+	text-decoration: underline;
+}
+
+.Comment__timestamp{
+	width:50px;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition:width 3s ease-in;
+}
+
+.Comment__timestamp:hover{
+	width:auto;
+}

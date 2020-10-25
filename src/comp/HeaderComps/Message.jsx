@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStateValue } from '../../StateProvider'
-import db,{auth} from '../../firebase'
+import db from '../../firebase'
 import firebase from 'firebase'
 import MessageRow from './MessageRow'
 import SendRoundedIcon from '@material-ui/icons/SendRounded';

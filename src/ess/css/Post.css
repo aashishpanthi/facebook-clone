@@ -45,6 +45,7 @@
 	color: gray;
 	cursor: pointer;
 	padding: 15px;
+	box-shadow: 0px 1px 1px rgba(200,200,200,0.2)
 }
 
 .post__option{
@@ -62,4 +63,8 @@
 
 .post__option  > p{
 	margin-left: 10px;
+}
+
+.post__liked{
+	color:blue;
 }

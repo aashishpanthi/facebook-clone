@@ -29,6 +29,8 @@ function PostMaker() {
 			image: url,
 			profilePic: user.photoURL,
 			username: user.displayName,
+			likes: 0,
+			emailsLiked: [],
 		})
 
 		setStatus('')

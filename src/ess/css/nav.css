@@ -151,6 +151,7 @@ a {
 
 .chatMessage__dropdown{
   padding:15px 0px 5px 10px;
+  width:400px;
 }
 
 .messageBox__header{
@@ -159,7 +160,7 @@ a {
 }
 
 .messageBox__messages{
-  width:300px;
+  width:100%;
   min-height:400px;
   height: 400px;
   max-height: 400px;
@@ -189,14 +190,14 @@ a {
 }
 
 .messageRow.received{ 
-  animation: othersMessageCommingIn .2s ease-in;
+  animation: othersMessageCommingIn .1s ease-in;
 }
 
 .messageRow.sent{
   background:#7744cc55;
   margin-left: auto;
   padding:7px 10px;
-  animation: yourMessageCommingIn .2s ease-in;
+  animation: yourMessageCommingIn .1s ease-in;
 }
 
 .messageRow__detailedBox{

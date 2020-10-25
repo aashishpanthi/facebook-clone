@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import DropdownItem from './DropdownItem'
-import { useStateValue } from '../../StateProvider'
 import Message from './Message'
 import Cork from './Cork'
 import '../../ess/css/nav.css';
 
 function Dropdown({item}) {
-  const [{user}, dispatch] = useStateValue()
-  const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
 

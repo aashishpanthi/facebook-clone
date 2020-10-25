@@ -66,7 +66,12 @@ function Cork({dropdownRef,calcHeight,setMenuHeight}) {
               Display Preferences
           </DropdownItem>
 
-          <DropdownItem setActiveMenu={setActiveMenu} leftIcon={<ExitToAppIcon />}>Log Out</DropdownItem>
+          <DropdownItem 
+            setActiveMenu={setActiveMenu}
+            leftIcon={<ExitToAppIcon />}
+          >
+            Log Out
+          </DropdownItem>
 
         </div>
       </CSSTransition>
