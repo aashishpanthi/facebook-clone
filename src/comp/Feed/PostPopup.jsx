@@ -67,6 +67,8 @@ function PostPopup({changeState}) {
 			image: URL,
 			profilePic: user.photoURL,
 			username: user.displayName,
+			likes: 0,
+			emailsLiked: [],
 		})
 	}
 
